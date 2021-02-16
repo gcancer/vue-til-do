@@ -54,19 +54,16 @@ export default {
         };
         const { data } = await loginUser(userData);
         // 메인페이지로 이동
-        console.log(data.user.username);
+        console.log(data.token);
 
+        this.$store.commit('setToken', data.token);
         this.$store.commit('setUsername', data.user.username);
         this.$router.push('/main');
-        // this.logMessage = `${data.user.username}님 환영합니다`;
-        //<router-link to =""></router-link> 와 같음
       } catch (error) {
-        // 에러 핸들링할 코드
-        // error메시지를 화면에 노출시키는게 좋은 해결책 중 하나
         console.log(error.response.data);
         this.logMessage = error.response.data;
       } finally {
-        // this.initForm(); // finally로 내용 비우기
+        this.initForm();
       }
     },
     initForm() {
