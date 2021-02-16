@@ -57,6 +57,7 @@ export default {
           contents: this.contents,
         });
         console.log(response);
+        this.$router.push('/main');
       } catch (error) {
         console.log(error); // error.response 객체 data속성에 접근
         this.logMessage = error.response.data.message;
