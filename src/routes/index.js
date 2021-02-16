@@ -29,6 +29,10 @@ export default new VueRouter({
       component: () => import('@/views/MainPage.vue'),
     },
     {
+      path: '/add',
+      component: () => import('@/views/PostAddPage.vue'),
+    },
+    {
       path: '*', // 나머지 모든 URL에 대해 반응하겠다.,
       component: () => import('@/views/NotFoundPage.vue'),
     },
